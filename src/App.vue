@@ -1,16 +1,16 @@
 <template>
-  <h1> Shopping Demo Site </h1>
+  <NavBar />
   <div class="page-wrap">
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-
+import NavBar from "@/components/NavBar.vue"
 export default {
   name: 'App',
   components: {
-    
+    NavBar
   }
 }
 </script>
