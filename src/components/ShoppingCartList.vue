@@ -1,18 +1,15 @@
 <template>
-    <div v-if="cartItems.length > 0">
+    
         <div class="product-container" v-for="product in cartItems" :key="product.id">
-            <img class="product-image" :src="product.imageName" />
+            <img class="product-image" :src="product.image" />
             <div class="details-wrap">
-                <h3>{{ product.name }}</h3>
+                <h3>{{ product.title }}</h3>
                 <p>{{ product.price }}</p>
             </div>
-            <button class="remove-button">Remove from cart</button>
+            <button @click="$emit('remove-from-cart',product.id)"  class="remove-button">Remove from cart</button>
         </div>
-    </div>
-    <div v-if="cartItems.length === 0">
-        Empty Cart
-    </div>
-    <button class="checkout-button">Proceed to Checkout</button>    
+    <button  class="checkout-button">Proceed to Checkout</button>
+    
 </template>
 
 <script>

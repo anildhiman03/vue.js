@@ -4,18 +4,22 @@
 </template>
 
 <script>
-import { products } from '@/temp-data';
+import axios from 'axios';
 import ProductList from '@/components/ProductList.vue';
 
 export default {
     name: "PridyctsPage",
     data() {
         return {
-            products
+            products: []
         }
     },
     components: {
         ProductList
+    },
+    async created () {
+        const response = await axios.get('https://fakestoreapi.com/products');
+        this.products = response.data;
     }
 };
 </script>
